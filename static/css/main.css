@@ -1,0 +1,147 @@
+/* Основные настройки */
+
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+body{
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+body::-webkit-scrollbar{
+	width: 10px;
+}
+body::-webkit-scrollbar-track{
+	background-color: #222;
+}
+body::-webkit-scrollbar-thumb{
+	background-color: #03DAC5;
+	border-radius: 15px;
+}
+
+a{
+	transition: .2s;
+	text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,h6, p{
+	cursor: default;
+}
+
+.white-font{
+	color: #fff;
+}
+
+.black-font{
+	color: #111;
+}
+
+.section{
+	max-width: 1980px;
+	padding-right: 100px;
+	padding-left: 100px;
+}
+
+.section-title-alert-box{
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+.alert-box{
+	max-width: 400px;
+	padding: 25px 40px;
+	word-wrap: wrap;
+	background-color: #333;
+	border: 1px solid #333;
+	border-radius: 15px;
+}
+	.success{
+		border: 1px solid limegreen;
+	}
+	.warning{
+		border: 1px solid #cdcb32;
+	}
+	.danger{
+		border: 1px solid #cd3c32;
+	}
+	.alert-box p{
+		font-size: 13px;
+	}
+
+
+/* Навигация */
+
+nav{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	background-color: #333;
+}
+nav a:hover{
+	color: #03DAC5;
+}
+	
+	.logo{
+		font-size: 18px;
+		font-weight: 600;
+	}
+
+	.nav-btns{}
+		.nav-btns a{
+			margin-right: 25px;
+		}
+		.nav-btns a:last-child{
+			margin-right: 0px;
+			margin-left: -15px;
+		}
+
+		.reserve-btn{
+			color: #111;
+			background-color: #03DAC5;
+			padding: 6px 13px;
+			border: 1px solid #03DAC5;
+			border-radius: 8px;
+		}
+			.reserve-btn:hover{
+				background-color: #333;
+			}
+
+		.autentification-btn{
+			color: #111;
+			background-color: #BB86FC;
+			padding: 6px 13px;
+			border: 1px solid #BB86FC;
+			border-radius: 8px;
+		}
+			.autentification-btn:hover{
+				color: #BB86FC;
+				background-color: #333;
+			}
+
+
+/* Футер */
+
+footer{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #333;
+}
+
+	footer p{
+		color: #fff;
+		font-size: 14px;
+	}

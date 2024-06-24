@@ -1,0 +1,69 @@
+{% extends 'app_hotel/base.html' %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static '/css/registration.css' %}">
+{% endblock %}
+
+{% block content %}
+	<section class="section">
+		<div class="section-title-alert-box">
+			<h1 class="section-title">Регистрация</h1>
+			{% if form.errors %}
+				<div class="alert-box warning">
+					<p>{{ form.errors }}</p>
+				</div>
+			{% endif %}
+		</div>
+		<div class="registration-form-box">
+			<div class="registration-form">
+				<form action="{% url 'user:registration' %}" method="post">
+					{% csrf_token %}
+					<div class="form-person-info">
+						<h3>Регистрация</h3>
+						<div class="form-person-info-inputs">
+							<div class="person-fls">
+								<div class="form-input">
+									<label for="{{ form.first_name.id_for_label }}">Имя</label>
+									{{ form.first_name }}
+								</div>
+								<div class="form-input">
+									<label for="{{ form.last_name.id_for_label }}">Фамилия</label>
+									{{ form.last_name }}
+								</div>
+							</div>
+							<div class="username-email">
+								<div class="form-input">
+									<label for="{{ form.username.id_for_label }}">Логин</label>
+									{{ form.username }}
+								</div>
+								<div class="form-input">
+									<label for="{{ form.email.id_for_label }}">Email</label>
+									{{ form.email }}
+								</div>
+							</div>
+							<div class="pass">
+								<div class="form-input">
+									<label for="{{ form.password1.id_for_label }}">Пароль</label>
+									{{ form.password1 }}
+								</div>
+								<div class="form-input">
+									<label for="{{ form.password2.id_for_label }}">Подтвердите пароль</label>
+									{{ form.password2 }}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="btns">
+						<div class="submit-btn">
+							<input type="submit" value="Регистрация">
+						</div>
+						<div class="submit-btn">
+							<a href="{% url 'user:login' %}">Войти</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+{% endblock %}

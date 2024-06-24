@@ -1,0 +1,196 @@
+/* Бронирование - форма */
+
+body{
+	background-color: #111;
+	color: #fff;
+}
+
+section{
+	height: 100%;
+	padding-top: 40px;
+}
+
+	.section-title{
+		margin-bottom: 30px;
+	}
+
+	.booking-form-box{
+		min-height: 300px;
+		max-width: 1000px;
+		background-color: #333;
+		border-radius: 25px;
+		overflow: hidden;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin-right: auto;
+		margin-left: auto;
+		padding: 25px;
+		margin-bottom: 25px;
+	}
+
+		.booking-form-room{
+			max-width: content;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 50%;
+			padding-right: 25px;
+			border-right: 1px solid #e2e2e2;
+		}
+			.room-image{
+				overflow: hidden;
+				width: 100%;
+				max-height: 270px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+				.room-image img{
+					width: 100%;
+				}
+
+			.booking-form-room h3{
+				font-size: 20px;
+				margin-top: 30px;
+				margin-bottom: 30px;
+			}
+
+			.points-room{
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				width: 100%;
+				margin-bottom: 10px;
+			}
+				.point-room{
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+				}
+					.point-ico{
+						width: 40px;
+						height: 40px;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						overflow: hidden;
+						background-color: #03DAC5;
+						border-radius: 100%;
+						transition: 0.2s;
+						margin-right: 10px;
+					}
+						.point-ico img{
+							height: 30px;
+							width: 30px;
+						}
+						.point-ico:hover{
+							background-color: #BB86FC;
+						}
+					.point-text{
+						font-size: 16px;
+					}
+						.point-text p{
+							font-weight: 200;
+						}
+						.point-text p:last-child{
+							font-weight: 600;
+						}
+
+
+		.booking-form{
+			width: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-left: 25px;
+		}
+			.booking-form form{
+				display: flex;
+				flex-direction: column;
+				
+			}
+				.form-person-info{
+					margin-bottom: 25px;
+				}
+				.form-dates{
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
+				}
+					.form-dates-inputs{
+						display: flex;
+						flex-direction: row;
+						justify-content: space-around;
+						align-items: center;
+					}
+						.form-dates-inputs .form-input{
+							margin-bottom: 0px;
+						}
+							.form-dates-inputs .form-input input{
+								margin-bottom: 0px;
+								margin-right: 15px;
+								color: #fff;
+							}
+								.form-dates-inputs .form-input input:hover{
+									border-bottom: 1px solid #fff;
+								}
+					.booking-form div h3{
+						font-size: 18px;
+						font-weight: 400;
+						margin-bottom: 25px;
+					}
+					.form-input{
+						display: flex;
+						flex-direction: column;
+						margin-bottom: 10px;
+					}
+						.form-input label{
+							font-size: 12px;
+							margin-bottom: 2px;
+						}
+						.form-input input{
+							cursor: pointer;
+							transition: 0.2s;
+							border: 1px solid #333;
+							border-bottom: 1px solid #03DAC5;
+							padding: 10px 20px;
+							color: #fff;
+							background-color: #333;
+							margin-bottom: 10px;
+						}
+							.form-input input:hover{
+								border-bottom: 1px solid #fff;
+							}
+							.form-input input:last-child{
+								margin-bottom: 0px;
+							}
+
+				.submit-btn{
+					display: flex;
+					flex-direction: row;
+					justify-content: space-around;
+					align-items: center;
+					margin-top: 30px;
+				}
+					.submit-btn div{
+						font-size: 16px;
+					}
+					.submit-btn input{
+						cursor: pointer;
+						padding: 10px 20px;
+						color: #111;
+						background-color: #03DAC5;
+						border: 1px solid #03DAC5;
+						border-radius: 7px;
+						transition: 0.2s;
+					}
+						.submit-btn input:hover{
+							background-color: #333;
+							color: #03DAC5;
+						}
+
+
+
+

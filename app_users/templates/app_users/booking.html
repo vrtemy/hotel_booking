@@ -1,0 +1,97 @@
+{% extends 'app_hotel/base.html' %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static '/css/booking.css' %}">
+{% endblock %}
+
+{% block content %}
+	<section class="section">
+		<div class="section-title-alert-box">
+			<h1 class="section-title">Бронь</h1>
+			{% if messages %}
+				<div class="alert-box success">
+					{% for message in messages %}
+						<p>{{ message }}</p>
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+		<div class="booking-form-box">
+			<div class="booking-form-room">
+				<div class="room-image">
+					<img src="{{ data.room_image }}" alt="">
+				</div>
+				<h3>{{ data.room_name }}</h3>
+				<div class="points-room">
+					<div class="point-room">
+						<div class="point-ico">
+							<img src="{% static '/icons/people-ico.png' %}" alt="">
+						</div>
+						<div class="point-text">
+							<p>Жилые места:</p>
+							<p>{{ data.room_max_guests }}</p>
+						</div>
+					</div>
+					<div class="point-room">
+						<div class="point-ico">
+							<img src="{% static '/icons/child-ico.png' %}" alt="">
+						</div>
+						<div class="point-text">
+							<p>Детские места:</p>
+							{% if data.room_child_place == "True" %}
+								<p>Есть</p>
+							{% else %}
+								<p>Нет</p>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="booking-form">
+				<form action="{% url 'user:booking' %}" method="post">
+					{% csrf_token %}
+					<div class="form-person-info">
+						<h3>Проживающий:</h3>
+						<div class="form-person-info-inputs">
+							<div class="form-input">
+								<label for="{{form.first_name.id_for_label}}">Имя</label>
+								{{ form.first_name }}
+							</div>
+							<div class="form-input">
+								<label for="{{form.last_name.id_for_label}}">Фамилия</label>
+								{{ form.last_name }}
+							</div>
+						</div>
+					</div>
+					<div class="form-dates">
+						<h3>Время проживания</h3>
+						<div class="form-dates-inputs">
+							<div class="form-input">
+								<label for="{{ form.date_entry.id_for_label }}">Дата прибытия</label>
+								{{ form.date_entry }}
+							</div>
+							<div class="form-input">
+								<label for="{{ form.date_exit.id_for_label }}">Дата выселения</label>
+								{{ form.date_exit }}
+							</div>
+							<div>
+								<input value="{{ data.room_name }}" style="display: none;" name="room_name">
+								<input value="{{ data.room_price }}" style="display: none;" name="price">
+								<input value="{{ user.username }}" style="display: none;" name="username">
+							</div>
+						</div>
+					</div>
+					<div class="submit-btn">
+						{% if user.is_authenticated %}
+							<input type="submit" value="Забронировать">
+						{% else %}
+							<a href="{% url 'user:login' %}" class="autentification-btn white-font">Вход</a>
+						{% endif %}
+						<div>Сутки: $ {{ data.price }}</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+{% endblock %}

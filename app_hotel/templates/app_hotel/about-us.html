@@ -1,0 +1,45 @@
+{% extends 'app_hotel/base.html' %}
+{% load static %}
+
+	{% block css %}
+		<link rel="stylesheet" type="text/css" href="{% static '/css/about-us.css' %}">
+	{% endblock %}
+
+	{% block content %}
+		<section class="section">
+			<h1 class="section-title">О нас</h1>
+			<div class="content">
+				<div class="circle-img">
+					<img src="{% static '/img/heqw.jpg' %}" alt="">
+				</div>
+				<div class="about-hotel">
+					<div class="about-hotel-text">
+						<h2>Lorem ipsum</h2>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ab minus dolorum tempore iusto facilis quos. Minima laudantium inventore ex, corporis, veniam commodi culpa! Porro, optio. Quis alias, minima ex?</p>
+					</div>
+					<div class="points">
+						<div class="p-box">
+							<div class="point">
+								<div></div>
+								<p>Преимущество</p>
+							</div>
+							<div class="point">
+								<div></div>
+								<p>Преимущество</p>
+							</div>
+						</div>
+						<div class="p-box">
+							<div class="point">
+								<div></div>
+								<p>Преимущество</p>
+							</div>
+							<div class="point">
+								<div></div>
+								<p>Преимущество</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endblock %}

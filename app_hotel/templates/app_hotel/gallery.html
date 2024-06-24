@@ -1,0 +1,71 @@
+{% extends 'app_hotel/base.html' %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static '/css/gallery.css' %}">
+{% endblock %}
+
+{% block content %}
+	<section class="section">
+		<h1 class="section-title">Номера отеля</h1>
+		<div class="rooms-list">
+			{% for room in hotel_rooms %}
+				<div class="room">
+					<div class="image-room"><img src="{{ room.image.url }}" alt=""></div>
+					<div class="about-room">
+						<h2>{{ room.name }}</h2>
+						<p>{{ room.description }}</p>
+						<div class="points-room">
+							<div class="point">
+								<div class="point-ico">
+									<img src="{% static '/icons/room-ico.png' %}" alt="">
+								</div>
+								<div class="point-description">
+									<h4>Комнат:</h4>
+									<p>{{ room.count_rooms }}</p>
+								</div>
+							</div>
+							<div class="point">
+								<div class="point-ico">
+									<img src="{% static '/icons/people-ico.png' %}" alt="">
+								</div>
+								<div class="point-description">
+									<h4>Мест:</h4>
+									<p>{{ room.max_guests }}</p>
+								</div>
+							</div>
+							<div class="point">
+								<div class="point-ico">
+									<img src="{% static '/icons/child-ico.png' %}" alt="">
+								</div>
+								<div class="point-description">
+									<h4>Места для детей:</h4>
+									{% if room.child_place %}
+										<p>Есть</p>
+									{% else %}
+										<p>Нет</p>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="price-btn-box">
+						<div class="price">
+							<h3>Цена за сутки:</h3>
+							<p>$ {{ room.price_pn }}</p>
+						</div>
+						<form action="{% url 'user:room_data' %}" method="post">
+							{% csrf_token %}
+							<input value="{{ room.image.url }}" style="display: none;" name="room_image">
+							<input value="{{ room.price_pn }}" style="display: none;" name="price">
+							<input value="{{ room.name }}" style="display: none;" name="room_name">
+							<input value="{{ room.max_guests }}" style="display: none;" name="room_max_guests">
+							<input value="{{ room.child_place }}" style="display: none;" name="room_child_place">
+							<input type="submit" class="more-info white-font" value="Подробнее">
+						</form>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

@@ -1,0 +1,78 @@
+
+/* Контент */
+
+body{
+	background-color: #111;
+	color: #fff;
+}
+
+section{
+	height: 100%;
+}
+
+	.section-title{
+		margin-top: 40px;
+		margin-bottom: 50px;
+	}
+
+	.content{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		flex-wrap: wrap;
+	}
+		.circle-img{
+			display: block;
+			border-radius: 100%;
+			width: 400px;
+			height: 400px;
+			overflow: hidden;
+		}
+			.circle-img img{
+				width: 100%;
+				height: 100%;
+
+			}
+
+		.about-hotel{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+		}
+			.about-hotel-text{
+				max-width: 600px;
+				margin-bottom: 40px;
+			}
+				.about-hotel-text h2{
+					margin-bottom: 15px;
+				}
+			.points{
+				display: flex;
+				flex-direction: column;
+			}
+				.p-box{
+					display: flex;
+					flex-direction: row;
+					margin-bottom: 20px;
+				}
+				.points div:last-child{
+					margin-bottom: 0px;
+				}
+					.point{
+						display: flex;
+						flex-direction: row;
+						justify-content: center;
+						align-items: center;
+						margin-right: 30px;
+					}
+					.point:last-child{
+						margin-right: 0px;
+					}
+						.point div{
+							width: 15px;
+							height: 15px;
+							background-color: limegreen;
+							border-radius: 100%;
+							margin-right: 5px;
+						}

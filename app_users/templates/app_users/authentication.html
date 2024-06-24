@@ -1,0 +1,48 @@
+{% extends 'app_hotel/base.html' %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static '/css/authentication.css' %}">
+{% endblock %}
+
+{% block content %}
+	<section class="section">
+		<div class="section-title-alert-box">
+			<h1 class="section-title">Авторизация</h1>
+			{% if form.errors%}
+				<div class="alert-box warning">
+					<p>{{ form.errors }}</p>
+				</div>
+			{% endif %}
+		</div>
+		<div class="authentication-form-box">
+			<div class="authentication-form">
+				<form action="{% url 'user:login' %}" method="post">
+					{% csrf_token %}
+					<div class="form-person-info">
+						<h3>Авторизация</h3>
+						<div class="form-person-info-inputs">
+							<div class="form-input">
+								<label for="{{ form.username.id_for_label }}">Логин</label>
+								{{ form.username }}
+							</div>
+							<div class="form-input">
+								<label for="{{ form.password.id_for_label }}">Пароль</label>
+								{{ form.password }}
+							</div>
+						</div>
+					</div>
+					<div class="btns">
+						<div class="submit-btn">
+							<input type="submit" value="Войти">
+						</div>
+						<div class="submit-btn">
+							<a href="{% url 'user:registration' %}">Регистрация</a>
+						</div>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</section>
+{% endblock %}

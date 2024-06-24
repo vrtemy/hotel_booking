@@ -1,0 +1,48 @@
+
+#body{
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+/* Контент */
+header{
+	background-image: url(../img/heqw.jpg);
+	background-position: center;
+	background-size: cover;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+	.content-header{
+		display: flex;
+		flex-direction: column;
+		width: 40%;
+	}
+		.content-header *{
+			margin-bottom: 15px;
+		}
+		.content-header *:last-child{
+			margin-bottom: 0px;
+		}
+		.content-header h2{
+			font-size: 32px;
+		}
+		.content-header p{}
+		.content-header a{
+			color: #111;
+			background-color: #03DAC5;
+			padding: 6px 13px;
+			border: 1px solid #03DAC5;
+			border-radius: 8px;
+			width: max-content;
+		}
+			.content-header a:hover{
+				color: #03DAC5;
+				background-color: #fff;
+			}
+	
+

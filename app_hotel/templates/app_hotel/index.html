@@ -1,0 +1,17 @@
+{% extends 'app_hotel/base.html' %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static '/css/main_index.css' %}">
+{% endblock %}
+
+{% block content %}
+	<header class="section">
+		<div class="content-header">
+			<h2 class="white-font">Lorem ipsum</h2>
+			<p class="white-font">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum suscipit officiis porro aut, voluptatum at voluptates, aperiam.</p>
+			<a href="{% url 'hotel:gallery' %}" class="reserve-btn">Выбрать номер</a>
+		</div>
+		<div></div>
+	</header>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'app_hotel/base.html' %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static '/css/user-page.css' %}">
+{% endblock %}
+
+{% block logout_btn %}
+	<a href="{% url 'user:logout' %}" class="autentification-btn white-font">Выйти</a>
+{% endblock %}
+
+{% block content %}
+	<section class="section">
+		<div class="section-title-alert-box">
+			<h1 class="section-title">Личный кабинет</h1>
+			{% if messages or form.errors %}
+				{% if messages %}
+					{% for message in messages %}
+						<div class="alert-box success">
+							<p>{{ message }}</p>
+						</div>
+					{% endfor %}
+				{% else %}
+					<div class="alert-box warning">
+						<p>{{ form.errors }}</p>
+					</div>
+				{% endif %}
+			{% endif %}
+		</div>
+		<div class="boxes-user-orders">
+			<div class="user-form-box">
+				<div class="user-form">
+					<form action="{% url 'user:profile' %}" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						<div class="form-person-info">
+							<div class="user-avatar-box">
+								<div></div>
+								<div class="user-avatar">
+									<img src="{% if user.avatar %} {{ user.avatar.url }} 
+									{% else %} {% static '/img/users/default_avatar.jpg' %} {% endif %}" alt="">
+								</div>
+							</div>
+							<div class="form-person-info-inputs">
+								<div class="person-fls">
+									<div class="form-input">
+										<label for="{{ form.first_name.id_for_label }}">Имя</label>
+										{{ form.first_name }}
+									</div>
+									<div class="form-input">
+										<label for="{{ form.last_name.id_for_label }}">Фамилия</label>
+										{{ form.last_name }}
+									</div>
+								</div>
+								<div class="user-image-browse">
+									<div class="form-input">
+										{{ form.avatar }}
+										<label for="{{ form.avatar.id_for_label }}">Выберите изображение</label>
+	                            	</div>
+								</div>
+								<div class="username-email">
+									<div class="form-input">
+										<label for="{{ form.username.id_for_label }}">Логин</label>
+										{{ form.username }}
+									</div>
+									<div class="form-input">
+										<label for="{{ form.email.id_for_label }}">Email</label>
+										{{ form.email }}
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="btns">
+							<div class="submit-btn">
+								<input type="submit" value="Применить">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="user-orders-box">
+				<h3>Забронированные номера</h3>
+				<div class="orders">
+					{% for order in data %}
+						<div class="order">
+							<div class="order-name-room">
+								<h4>Название номера:</h4>
+								<p>{{ order.room_name }}</p>
+							</div>
+							<div class="order-date">
+								<h4>Дата вьезда:</h4>
+								<p>{{ order.date_entry }}</p>
+								<h4 class="mgtop">Дата выезда:</h4>
+								<p>{{ order.date_exit }}</p>
+							</div>
+							<div class="btn-for-delete-order">
+								<form action="{% url 'user:delete_order' %}" method="get">
+									{% csrf_token %}
+									<input type="text" value="{{ order.pk }}" style="display: none;" name="pk">
+									<input type="submit" value="Отменить бронь" class="order-delete-btn">
+								</form>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

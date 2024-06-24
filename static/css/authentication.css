@@ -1,0 +1,109 @@
+/* Форма авторизации */
+
+body{
+	background-color: #111;
+	color: #fff;
+}
+
+section{
+	height: 100%;
+	padding-top: 40px;
+}
+
+	.authentication-form-box{
+		height: max-content;
+		width: max-content;
+		background-color: #333;
+		border-radius: 25px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-right: auto;
+		margin-left: auto;
+		padding: 30px;
+	}
+		.authentication-form{}
+			.authentication-form form{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				width: 100%;
+			}
+				.form-person-info{
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					width: 100%;
+				}
+				.form-person-info-inputs{
+					width: 100%;
+				}
+					.form-person-info h3{
+						font-size: 22px;
+						font-weight: 400;
+						margin-bottom: 30px;
+					}
+					.form-input{
+						display: flex;
+						flex-direction: column;
+						margin-bottom: 20px;
+					}
+					.form-input label{
+							font-size: 12px;
+							margin-bottom: 2px;
+						}
+						.form-input input{
+							cursor: pointer;
+							transition: 0.2s;
+							border: 1px solid #333;
+							border-bottom: 1px solid #03DAC5;
+							padding: 10px 20px;
+							color: #fff;
+							background-color: #333;
+							margin-bottom: 10px;
+						}
+							.form-input input:hover{
+								border-bottom: 1px solid #fff;
+							}
+							.form-input input:last-child{
+								margin-bottom: 0px;
+							}
+
+				.btns{
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+				}
+					.submit-btn{
+						margin-top: 20px;
+						margin-right: 20px;
+					}
+					.submit-btn:last-child{
+						margin-right: 0px;
+					}
+						.submit-btn input{
+							cursor: pointer;
+							padding: 10px 20px;
+							color: #111;
+							background-color: #03DAC5;
+							border: 1px solid #03DAC5;
+							border-radius: 7px;
+							transition: 0.2s;
+						}
+							.submit-btn input:hover{
+								background-color: #333;
+								color: #03DAC5;
+							}
+						.submit-btn a{
+							font-size: 14px;
+							padding: 10px 20px;
+							color: #111;
+							background-color: #BB86FC;
+							border: 1px solid #BB86FC;
+							border-radius: 7px;
+							transition: 0.2s;
+						}
+							.submit-btn a:hover{
+								background-color: #333;
+								color: #BB86FC;
+							}
